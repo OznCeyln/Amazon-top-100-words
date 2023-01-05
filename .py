@@ -11,6 +11,11 @@ soup = BeautifulSoup(response.content, "html.parser")
 # Find all the div elements with the "sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item sg-col-4-of-28 sg-col-4-of-16 sg-col most-gifted-color-4" class
 items = soup.find_all("div", class_="sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item sg-col-4-of-28 sg-col-4-of-16 sg-col most-gifted-color-4")
 
+# Print the 100 most searched words
+for item in items:
+    title = item.find("span", class_="a-size-medium a-color-base a-text-normal").text
+    print(title)
+
 # Create a new Excel workbook
 workbook = openpyxl.Workbook()
 
